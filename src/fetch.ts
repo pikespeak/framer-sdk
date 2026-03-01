@@ -1,16 +1,16 @@
 import type { PublicEndpointResponse } from "./types";
 
-const DEFAULT_BASE_URL = "https://app.databridge.dev";
+const DEFAULT_BASE_URL = "https://app.glosspipe.com";
 
 export interface FetchOptions {
-  /** Override the base URL (defaults to https://app.databridge.dev). */
+  /** Override the base URL (defaults to https://app.glosspipe.com). */
   baseUrl?: string;
   /** AbortSignal for cancellation. */
   signal?: AbortSignal;
 }
 
 /**
- * Fetch a public Data Bridge endpoint and return the typed response.
+ * Fetch a public GlossPipe endpoint and return the typed response.
  *
  * Throws on non-2xx status codes.
  */
@@ -30,7 +30,7 @@ export async function fetchEndpoint(
 }
 
 /**
- * Fetch a public Data Bridge endpoint and return the raw Response.
+ * Fetch a public GlossPipe endpoint and return the raw Response.
  *
  * Useful when callers need access to headers, status, or streaming.
  */

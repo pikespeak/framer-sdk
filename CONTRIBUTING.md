@@ -1,12 +1,12 @@
 # Contributing
 
-Thanks for your interest in contributing to the Data Bridge Framer SDK!
+Thanks for your interest in contributing to the GlossPipe Framer SDK!
 
 ## Getting Started
 
 ```bash
-git clone https://github.com/<org>/databridge-framer.git
-cd databridge-framer
+git clone https://github.com/<org>/framer-sdk.git
+cd framer-sdk
 npm install
 npm run build
 npm test

@@ -1,13 +1,13 @@
-import { useDataBridge, DataBridge } from "databridge-framer";
+import { useGlossPipe, GlossPipe } from "@glosspipe/framer-sdk";
 
 /**
- * Minimal weather demo consuming the Data Bridge SDK.
+ * Minimal weather demo consuming the GlossPipe Framer SDK.
  *
  * Replace "demo-weather" with your own endpoint slug once the
  * hosted platform is available.
  */
 export function App() {
-  const { data, loading, error, refresh } = useDataBridge("demo-weather", {
+  const { data, loading, error, refresh } = useGlossPipe("demo-weather", {
     refreshInterval: 60_000, // poll every 60 s
   });
 
@@ -33,7 +33,7 @@ export function App() {
         </p>
       )}
 
-      {data && <DataBridge response={data} />}
+      {data && <GlossPipe response={data} />}
 
       <button
         onClick={refresh}
@@ -63,10 +63,10 @@ export function App() {
             lineHeight: 1.5,
           }}
         >{`import { Override } from "framer"
-import { useDataBridge } from "databridge-framer"
+import { useGlossPipe } from "@glosspipe/framer-sdk"
 
 export function withWeather(): Override {
-  const { data } = useDataBridge("demo-weather")
+  const { data } = useGlossPipe("demo-weather")
   if (!data) return {}
   const d = data.data as { value: string | number; unit?: string }
   return { text: \`\${d.value}\${d.unit ? " " + d.unit : ""}\` }

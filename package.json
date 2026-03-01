@@ -1,8 +1,8 @@
 {
-  "name": "databridge-framer",
+  "name": "@glosspipe/framer-sdk",
   "version": "0.0.1",
   "private": true,
-  "description": "Framer SDK for Data Bridge — fetch and display live data in Framer sites",
+  "description": "Framer SDK for GlossPipe — fetch and display live data in Framer sites",
   "license": "MIT",
   "type": "module",
   "exports": {

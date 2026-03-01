@@ -9,7 +9,7 @@ export interface MetricCardProps {
 /**
  * Display a single metric value.
  *
- * Uses inline styles + CSS custom properties (`--db-*`) for theming.
+ * Uses inline styles + CSS custom properties (`--gp-*`) for theming.
  * No external CSS required — safe for Framer Code Overrides.
  */
 export function MetricCard({ data, className, style }: MetricCardProps) {
@@ -17,11 +17,11 @@ export function MetricCard({ data, className, style }: MetricCardProps) {
     <div
       className={className}
       style={{
-        fontFamily: "var(--db-font-family, inherit)",
-        padding: "var(--db-card-padding, 16px)",
-        borderRadius: "var(--db-card-radius, 8px)",
-        backgroundColor: "var(--db-card-bg, transparent)",
-        color: "var(--db-card-color, inherit)",
+        fontFamily: "var(--gp-font-family, inherit)",
+        padding: "var(--gp-card-padding, 16px)",
+        borderRadius: "var(--gp-card-radius, 8px)",
+        backgroundColor: "var(--gp-card-bg, transparent)",
+        color: "var(--gp-card-color, inherit)",
         display: "flex",
         flexDirection: "column",
         gap: "4px",
@@ -33,17 +33,17 @@ export function MetricCard({ data, className, style }: MetricCardProps) {
           src={data.image}
           alt=""
           style={{
-            width: "var(--db-image-size, 48px)",
-            height: "var(--db-image-size, 48px)",
+            width: "var(--gp-image-size, 48px)",
+            height: "var(--gp-image-size, 48px)",
             objectFit: "cover",
-            borderRadius: "var(--db-image-radius, 4px)",
+            borderRadius: "var(--gp-image-radius, 4px)",
           }}
         />
       )}
 
       <span
         style={{
-          fontSize: "var(--db-title-size, 0.875rem)",
+          fontSize: "var(--gp-title-size, 0.875rem)",
           opacity: 0.7,
         }}
       >
@@ -52,15 +52,15 @@ export function MetricCard({ data, className, style }: MetricCardProps) {
 
       <span
         style={{
-          fontSize: "var(--db-value-size, 1.5rem)",
-          fontWeight: "var(--db-value-weight, 600)" as never,
+          fontSize: "var(--gp-value-size, 1.5rem)",
+          fontWeight: "var(--gp-value-weight, 600)" as never,
         }}
       >
         {data.value}
         {data.unit && (
           <span
             style={{
-              fontSize: "var(--db-unit-size, 0.875rem)",
+              fontSize: "var(--gp-unit-size, 0.875rem)",
               marginLeft: "4px",
               opacity: 0.7,
             }}
@@ -73,7 +73,7 @@ export function MetricCard({ data, className, style }: MetricCardProps) {
       {data.date && (
         <span
           style={{
-            fontSize: "var(--db-date-size, 0.75rem)",
+            fontSize: "var(--gp-date-size, 0.75rem)",
             opacity: 0.5,
           }}
         >

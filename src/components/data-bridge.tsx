@@ -2,7 +2,7 @@ import type { PublicEndpointResponse, ItemListPayloadItem } from "../types";
 import { MetricCard } from "./metric-card";
 import { ItemList } from "./item-list";
 
-export interface DataBridgeProps {
+export interface GlossPipeProps {
   response: PublicEndpointResponse;
   className?: string;
   style?: React.CSSProperties;
@@ -12,7 +12,7 @@ export interface DataBridgeProps {
  * Smart auto-renderer that dispatches to the correct display component
  * based on `response.meta.template`.
  */
-export function DataBridge({ response, className, style }: DataBridgeProps) {
+export function GlossPipe({ response, className, style }: GlossPipeProps) {
   const { template } = response.meta;
 
   switch (template) {

@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { MetricCard } from "../components/metric-card";
 import { ItemList } from "../components/item-list";
-import { DataBridge } from "../components/data-bridge";
+import { GlossPipe } from "../components/data-bridge";
 import type { PublicEndpointResponse } from "../types";
 
 describe("MetricCard", () => {
@@ -100,7 +100,7 @@ describe("ItemList", () => {
   });
 });
 
-describe("DataBridge", () => {
+describe("GlossPipe", () => {
   it("renders MetricCard for metric_card template", () => {
     const response: PublicEndpointResponse = {
       meta: {
@@ -111,7 +111,7 @@ describe("DataBridge", () => {
       data: { title: "Temp", value: 22, unit: "°C" },
     };
 
-    render(<DataBridge response={response} />);
+    render(<GlossPipe response={response} />);
 
     expect(screen.getByText("Temp")).toBeInTheDocument();
     expect(screen.getByText("22")).toBeInTheDocument();
@@ -127,7 +127,7 @@ describe("DataBridge", () => {
       data: [{ title: "First" }, { title: "Second" }],
     };
 
-    render(<DataBridge response={response} />);
+    render(<GlossPipe response={response} />);
 
     expect(screen.getByText("First")).toBeInTheDocument();
     expect(screen.getByText("Second")).toBeInTheDocument();

@@ -11,7 +11,7 @@ export interface ItemListProps {
 /**
  * Display a list of items.
  *
- * Uses inline styles + CSS custom properties (`--db-*`) for theming.
+ * Uses inline styles + CSS custom properties (`--gp-*`) for theming.
  * No external CSS required — safe for Framer Code Overrides.
  */
 export function ItemList({ items, className, style, renderItem }: ItemListProps) {
@@ -19,13 +19,13 @@ export function ItemList({ items, className, style, renderItem }: ItemListProps)
     <ul
       className={className}
       style={{
-        fontFamily: "var(--db-font-family, inherit)",
+        fontFamily: "var(--gp-font-family, inherit)",
         listStyle: "none",
         margin: 0,
         padding: 0,
         display: "flex",
         flexDirection: "column",
-        gap: "var(--db-list-gap, 8px)",
+        gap: "var(--gp-list-gap, 8px)",
         ...style,
       }}
     >
@@ -46,10 +46,10 @@ function DefaultItem({ item }: { item: ItemListPayloadItem }) {
   return (
     <div
       style={{
-        padding: "var(--db-item-padding, 12px)",
-        borderRadius: "var(--db-card-radius, 8px)",
-        backgroundColor: "var(--db-item-bg, transparent)",
-        color: "var(--db-card-color, inherit)",
+        padding: "var(--gp-item-padding, 12px)",
+        borderRadius: "var(--gp-card-radius, 8px)",
+        backgroundColor: "var(--gp-item-bg, transparent)",
+        color: "var(--gp-card-color, inherit)",
         display: "flex",
         alignItems: "center",
         gap: "12px",
@@ -60,10 +60,10 @@ function DefaultItem({ item }: { item: ItemListPayloadItem }) {
           src={item.image}
           alt=""
           style={{
-            width: "var(--db-image-size, 40px)",
-            height: "var(--db-image-size, 40px)",
+            width: "var(--gp-image-size, 40px)",
+            height: "var(--gp-image-size, 40px)",
             objectFit: "cover",
-            borderRadius: "var(--db-image-radius, 4px)",
+            borderRadius: "var(--gp-image-radius, 4px)",
             flexShrink: 0,
           }}
         />
@@ -72,7 +72,7 @@ function DefaultItem({ item }: { item: ItemListPayloadItem }) {
       <div style={{ flex: 1, minWidth: 0 }}>
         <div
           style={{
-            fontSize: "var(--db-title-size, 0.875rem)",
+            fontSize: "var(--gp-title-size, 0.875rem)",
             fontWeight: 500,
           }}
         >
@@ -82,7 +82,7 @@ function DefaultItem({ item }: { item: ItemListPayloadItem }) {
         {item.description && (
           <div
             style={{
-              fontSize: "var(--db-description-size, 0.8125rem)",
+              fontSize: "var(--gp-description-size, 0.8125rem)",
               opacity: 0.7,
               marginTop: "2px",
             }}
@@ -95,7 +95,7 @@ function DefaultItem({ item }: { item: ItemListPayloadItem }) {
       {item.value != null && (
         <span
           style={{
-            fontSize: "var(--db-value-size, 0.875rem)",
+            fontSize: "var(--gp-value-size, 0.875rem)",
             fontWeight: 600,
             flexShrink: 0,
           }}

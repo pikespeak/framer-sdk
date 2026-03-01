@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import type { PublicEndpointResponse } from "./types";
 import { fetchEndpoint } from "./fetch";
 
-export interface UseDataBridgeOptions {
+export interface UseGlossPipeOptions {
   /** Override the base URL. */
   baseUrl?: string;
   /** Polling interval in ms. 0 or undefined = no polling. */
@@ -11,7 +11,7 @@ export interface UseDataBridgeOptions {
   enabled?: boolean;
 }
 
-export interface UseDataBridgeResult {
+export interface UseGlossPipeResult {
   data: PublicEndpointResponse | null;
   loading: boolean;
   error: Error | null;
@@ -20,14 +20,14 @@ export interface UseDataBridgeResult {
 }
 
 /**
- * React hook for fetching data from a public Data Bridge endpoint.
+ * React hook for fetching data from a public GlossPipe endpoint.
  *
  * Works in Framer Code Overrides and standard React apps.
  */
-export function useDataBridge(
+export function useGlossPipe(
   slug: string,
-  options?: UseDataBridgeOptions,
-): UseDataBridgeResult {
+  options?: UseGlossPipeOptions,
+): UseGlossPipeResult {
   const { baseUrl, refreshInterval = 0, enabled = true } = options ?? {};
 
   const [data, setData] = useState<PublicEndpointResponse | null>(null);

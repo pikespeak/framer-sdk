@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { renderHook, waitFor, act } from "@testing-library/react";
-import { useDataBridge } from "../hooks";
+import { useGlossPipe } from "../hooks";
 import type { PublicEndpointResponse } from "../types";
 
 const mockFetch = vi.fn();
@@ -29,10 +29,10 @@ function mockSuccessResponse() {
   });
 }
 
-describe("useDataBridge", () => {
+describe("useGlossPipe", () => {
   it("fetches data on mount", async () => {
     mockSuccessResponse();
-    const { result } = renderHook(() => useDataBridge("test"));
+    const { result } = renderHook(() => useGlossPipe("test"));
 
     // Initially loading
     expect(result.current.data).toBeNull();
@@ -52,7 +52,7 @@ describe("useDataBridge", () => {
       statusText: "Internal Server Error",
     });
 
-    const { result } = renderHook(() => useDataBridge("test"));
+    const { result } = renderHook(() => useGlossPipe("test"));
 
     await waitFor(() => {
       expect(result.current.error).toBeInstanceOf(Error);
@@ -64,7 +64,7 @@ describe("useDataBridge", () => {
   it("does not fetch when enabled is false", async () => {
     mockSuccessResponse();
     const { result } = renderHook(() =>
-      useDataBridge("test", { enabled: false }),
+      useGlossPipe("test", { enabled: false }),
     );
 
     // Give React time to settle
@@ -81,7 +81,7 @@ describe("useDataBridge", () => {
   it("refetches on slug change", async () => {
     mockSuccessResponse();
     const { result, rerender } = renderHook(
-      ({ slug }: { slug: string }) => useDataBridge(slug),
+      ({ slug }: { slug: string }) => useGlossPipe(slug),
       { initialProps: { slug: "first" } },
     );
 
@@ -99,7 +99,7 @@ describe("useDataBridge", () => {
 
   it("supports manual refresh", async () => {
     mockSuccessResponse();
-    const { result } = renderHook(() => useDataBridge("test"));
+    const { result } = renderHook(() => useGlossPipe("test"));
 
     await waitFor(() => {
       expect(result.current.loading).toBe(false);
@@ -121,7 +121,7 @@ describe("useDataBridge", () => {
     mockSuccessResponse();
 
     renderHook(() =>
-      useDataBridge("test", { refreshInterval: 5000 }),
+      useGlossPipe("test", { refreshInterval: 5000 }),
     );
 
     // Let initial fetch resolve

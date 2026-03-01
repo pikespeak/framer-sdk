@@ -20,7 +20,7 @@ export interface ItemListPayloadItem {
   date?: string;
 }
 
-/** Shape returned by a public Data Bridge endpoint. */
+/** Shape returned by a public GlossPipe endpoint. */
 export interface PublicEndpointResponse {
   meta: {
     template: TemplateKind;

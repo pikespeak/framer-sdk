@@ -31,7 +31,7 @@ describe("fetchEndpoint", () => {
 
     expect(result).toEqual(MOCK_RESPONSE);
     expect(mockFetch).toHaveBeenCalledWith(
-      "https://app.databridge.dev/api/v1/public/demo-weather",
+      "https://app.glosspipe.com/api/v1/public/demo-weather",
       { signal: undefined },
     );
   });
@@ -71,7 +71,7 @@ describe("fetchEndpoint", () => {
     await fetchEndpoint("slug with spaces");
 
     expect(mockFetch).toHaveBeenCalledWith(
-      "https://app.databridge.dev/api/v1/public/slug%20with%20spaces",
+      "https://app.glosspipe.com/api/v1/public/slug%20with%20spaces",
       { signal: undefined },
     );
   });
@@ -86,7 +86,7 @@ describe("fetchEndpoint", () => {
     await fetchEndpoint("test", { signal: controller.signal });
 
     expect(mockFetch).toHaveBeenCalledWith(
-      "https://app.databridge.dev/api/v1/public/test",
+      "https://app.glosspipe.com/api/v1/public/test",
       { signal: controller.signal },
     );
   });
